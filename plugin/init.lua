@@ -18,8 +18,8 @@ end
 ---returns the name of the package, used when requiring modules
 ---@return string
 local function get_require_path()
-  local path = "httpssCssZssZsgithubsDscomsZsadriankarlensZsbarsDswezterm"
-  local path_trailing_slash = "httpssCssZssZsgithubsDscomsZsadriankarlensZsbarsDsweztermsZs"
+  local path = "httpssCssZssZsgithubsDscomsZsbaklavametalsZsbarsDswezterm"
+  local path_trailing_slash = "httpssCssZssZsgithubsDscomsZsbaklavametalsZsbarsDsweztermsZs"
   return directory_exists(path_trailing_slash) and path_trailing_slash or path
 end
 
@@ -88,10 +88,10 @@ wez.on("format-tab-title", function(tab, _, _, conf, _, _)
   local palette = conf.resolved_palette
 
   local index = tab.tab_index + 1
-  local offset = #tostring(index) + #options.separator.left_icon + (2 * options.separator.space) + 2
-  local title = index
-    .. utilities._space(options.separator.left_icon, options.separator.space, nil)
-    .. tabs.get_title(tab)
+  local offset = #tostring(index) + 2
+  local title = tostring(index)
+    -- .. utilities._space(options.separator.left_icon, options.separator.space, nil)
+    -- .. tabs.get_title(tab)
 
   local width = conf.tab_max_width - offset
   if #title > conf.tab_max_width then
